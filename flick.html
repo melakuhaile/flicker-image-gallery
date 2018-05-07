@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title></title>
+      <link rel="stylesheet" href="css/layout.css" />
+   </head>
+   <body>
+      <header class="island">
+         <h1 align="center">Picture Gallery</h1>
+         <form class="js-form-search form-search" action="/search" method="get" role="search">
+            <label for="query">Search:</label>
+            <input type="search" name="query" id="query" placeholder="Search" required />
+            <input background-color="blue" type="submit" value="Search" />
+         </form>
+      </header>
+
+      <div class="island">
+         <div class="js-gallery gallery">
+            <img src="" class="js-gallery__image" />
+            <button class="js-gallery__arrow--left gallery__arrow gallery__arrow--left">
+               <span class="visually-hidden">Previous photo</span>
+            </button>
+            <button class="js-gallery__arrow--right gallery__arrow gallery__arrow--right">
+               <span class="visually-hidden">Next photo</span>
+            </button>
+         </div>
+      </div>
+
+      <div class="island thumbnails">
+         <ul class="js-thumbnails__list thumbnails__list"></ul>
+         <ol class="js-thumbnails__pager thumbnails__pager"></ol>
+      </div>
+
+
+      <script src="js/flickrlink.js"></script>
+      <script src="js/flickr.js"></script>
+      <script src="js/main.js"></script>
+   </body>
+</html>
+<style>
+    .form-search
+{
+   margin: 0.5em 0;
+   text-align: right;
+}
+
+.form-search #query
+{
+   padding: 0.2em;
+}
+
+.form-search input
+{
+   color: #000000;
+}
+
+.thumbnails
+{
+   border-bottom: 3px solid #FFFFFF;
+}
+.gallery
+{
+   position: relative; height: 500px;border: 1px solid #FFFFFF;
+}
+.gallery img
+{
+   display: block; margin: 0 auto; max-width: 100%; max-height: 100%;
+}
+.gallery__arrow
+{
+   position: absolute; top: 50%; display: block; width: 60px; height: 60px; border: none; border-radius: 50%;
+   background-color: #000000;opacity: 0.7; cursor: pointer;
+}
+.gallery__arrow:hover,
+.gallery__arrow:focus
+{
+   opacity: 1;
+}
+.gallery__arrow:before, .gallery__arrow:after
+{
+   content: '';position: absolute;width: 10px;height: 40%;background-color: rgb(255, 255, 255);
+}
+.gallery__arrow:before
+{
+   bottom: 12px;
+}
+.gallery__arrow:after
+{
+   top: 12px;
+}
+
+.gallery__arrow:hover:before,.gallery__arrow:focus:before,.gallery__arrow:hover:after,.gallery__arrow:focus:after
+{
+   background-color: #FCB712;
+}
+
+.gallery__arrow--left
+{
+   left: 0.5em;
+}
+.gallery__arrow--left:before
+{
+   transform: rotate(-40deg);left: 35%;
+}
+
+.gallery__arrow--left:after
+{
+   transform: rotate(40deg);left: 35%;
+}
+
+.gallery__arrow--right
+{
+   right: 0.5em;
+}
+
+.gallery__arrow--right:before
+{
+   transform: rotate(40deg);right: 35%;
+}
+
+.gallery__arrow--right:after
+{
+   transform: rotate(-40deg); right: 35%;
+}
+
+</style>
